@@ -189,6 +189,10 @@ abstract class BaseAction implements ActionInterface
             $body = json_decode($response->getBody(), true);
 
             // Log successful response
+            if( $body == null ){
+                $body = [];
+            }
+
             Log::info('API Response: ', $body);
 
             return $body;
